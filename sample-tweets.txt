@@ -1,0 +1,7 @@
+Nebraska paid $MONEY to $COACH this month. They have $LEFT remainig to buy out his contract.
+
+This month Nebraska will pay $MONEY total for buyouts to Bo Pelini, Mike Riley, and Shawn Eichorst.
+
+Nebraska has $X months remaining until it has paid off the contract of Bo Pelini, in $MONTH_ENDING
+
+All told, Nebraska will pay Bo Pelini $6.54 million since firing him.
