@@ -18,3 +18,6 @@ func PeliniMonths() int {
 func RileyMonths() int {
 	return MonthsUntil(2021, time.February)
 }
+func EichorstMonths() int {
+	return MonthsUntil(2019, time.June)
+}

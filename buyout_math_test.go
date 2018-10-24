@@ -31,4 +31,11 @@ func TestMonthMath(t *testing.T) {
 			t.Fatal("Bad Riley")
 		}
 	}
+	t.Log("Eichorst Months")
+	{
+		eichorstMonths := EichorstMonths()
+		if eichorstMonths != 9 {
+			t.Fatal(eichorstMonths)
+		}
+	}
 }
