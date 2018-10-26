@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 var peliniPayout int
 var eichorstPayout int
@@ -13,7 +17,7 @@ func init() {
 }
 func TweetPeliniPayout() string {
 	peliniMonths := PeliniMonths()
-	tweet := fmt.Sprintf("Bo Pelini has %d months left until Nebraska completes his contract buyout. They will pay him %d this month and next month until February 2019.", peliniMonths, peliniPayout)
+	tweet := fmt.Sprintf("Bo Pelini has %d months left until Nebraska completes his contract buyout. They will pay him $%d this month and next month until February 2019.", peliniMonths, peliniPayout)
 	return tweet
 }
 
@@ -25,7 +29,7 @@ func TweetPeliniLeft() string {
 
 func TweetRileyPayout() string {
 	rileyMonths := RileyMonths()
-	tweet := fmt.Sprintf("Mike Riley has %d months left until Nebraska completes his contract buyout. They will pay him %d this month and next month until February 2021.", rileyMonths, rileyPayout)
+	tweet := fmt.Sprintf("Mike Riley has %d months left until Nebraska completes his contract buyout. They will pay him $%d this month and next month until February 2021.", rileyMonths, rileyPayout)
 	return tweet
 }
 
@@ -40,7 +44,20 @@ func TweetEichorstLeft() string {
 	return tweet
 }
 func ThisMonthPayout() string {
-	tweet := fmt.Sprintf("This month, Nebraska will pay $%d in total to Bo Pelini, Mike Riley, and Shawn Eichorst this month.", peliniPayout+eichorstPayout+rileyPayout)
+	tweet := fmt.Sprintf("This month, Nebraska will pay $%d in total to Bo Pelini, Mike Riley, and Shawn Eichorst.", peliniPayout+eichorstPayout+rileyPayout)
 	return tweet
 
+}
+
+func RandomTweet() string {
+	rand.Seed(time.Now().UnixNano())
+	toots := []string{
+		ThisMonthPayout(),
+		TweetEichorstLeft(),
+		TweetRileyLeft(),
+		TweetRileyPayout(),
+		TweetPeliniLeft(),
+		TweetPeliniPayout(),
+	}
+	return toots[rand.Intn(len(toots))]
 }
