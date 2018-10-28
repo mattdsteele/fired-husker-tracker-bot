@@ -18,6 +18,6 @@ func TwitterHandler(request events.CloudWatchEvent) {
 	Tweet(tweet)
 	log.Printf("Tooted: %s\n", tweet)
 }
-func mainTwitter() {
+func main() {
 	lambda.Start(TwitterHandler)
 }

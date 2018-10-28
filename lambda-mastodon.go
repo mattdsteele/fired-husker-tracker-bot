@@ -25,6 +25,6 @@ func Handler(request events.CloudWatchEvent) {
 	Toot(connection, tweet)
 	log.Printf("Tooted: %s\n", tweet)
 }
-func main() {
+func mainToot() {
 	lambda.Start(Handler)
 }
