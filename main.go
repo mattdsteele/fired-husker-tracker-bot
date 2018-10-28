@@ -16,12 +16,10 @@ func mainMastodon() {
 }
 */
 
-func mainTest() {
+func mainStandaloneTwitter() {
 	tweetList := RandomTweet()
-	tweet, err := Tweet(tweetList)
+	_, err := Tweet(tweetList)
 	if err != nil {
 		fmt.Printf("Error: %s", err)
 	}
-
-	fmt.Printf("Tweeted: %s", tweet)
 }

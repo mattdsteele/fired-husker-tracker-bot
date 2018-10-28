@@ -16,14 +16,14 @@ func TestTweets(t *testing.T) {
 	t.Log("Tweet 2")
 	{
 		tweet := TweetPeliniLeft()
-		if !strings.Contains(tweet, "Nebraska still owes $640045") {
+		if !strings.Contains(tweet, "Nebraska still owes $640,045") {
 			t.Fatal("Failed tweet " + tweet)
 		}
 	}
 	t.Log("Payout")
 	{
 		tweet := ThisMonthPayout()
-		if !strings.Contains(tweet, "356508") {
+		if !strings.Contains(tweet, "$356,508") {
 			t.Fatal("Failed tweet " + tweet)
 		}
 	}
