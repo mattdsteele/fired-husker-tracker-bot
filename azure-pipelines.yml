@@ -29,3 +29,8 @@ steps:
     go build -v .
   workingDirectory: '$(modulePath)'
   displayName: 'Get dependencies, then build'
+
+- script: |
+    zip buyout-bot.zip buyout-bot
+  workingDirectory: '$(modulePath)'
+  displayName: 'Zip for Lambda'
