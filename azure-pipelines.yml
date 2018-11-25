@@ -35,6 +35,8 @@ steps:
     pwd
     zip buyout-bot.zip buyout-bot
     mkdir dist
+    pwd
+    ls
     mv buyout-bot.zip dist
   workingDirectory: '$(modulePath)'
   displayName: 'Zip for Lambda'
