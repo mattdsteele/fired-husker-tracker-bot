@@ -7,10 +7,12 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 variables:
-  GOROOT: '/usr/local/go1.11' # Go installation path
+#  GOROOT: '/usr/local/go1.11' # Go installation path
   GO111MODULE: 'on'
 
 steps:
+  - bash: go version
+  
   - bash: go build -v .
     displayName: 'Get dependencies, then build'
 
