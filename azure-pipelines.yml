@@ -12,6 +12,7 @@ variables:
   GOPATH: '$(system.defaultWorkingDirectory)/gopath' # Go workspace path
   modulePath: '$(GOPATH)/src/github.com/$(build.repository.name)' # Path to the module's code
   GO111MODULE: 'on'
+  System.Debug: 'true'
 
 steps:
 - script: |
@@ -31,6 +32,7 @@ steps:
   displayName: 'Get dependencies, then build'
 
 - script: |
+    pwd
     zip buyout-bot.zip buyout-bot
     mkdir dist
     mv buyout-bot.zip dist
