@@ -37,4 +37,4 @@ steps:
 - task: PublishPipelineArtifact@0
   inputs:
     artifactName: 'buyout-bot-zip'
-    targetPath: '$(Agent.WorkFolder)/dist'
+    targetPath: '$(System.DefaultWorkingDirectory)/dist'
