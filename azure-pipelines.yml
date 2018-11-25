@@ -32,10 +32,12 @@ steps:
 
 - script: |
     zip buyout-bot.zip buyout-bot
+    mkdir dist
+    mv buyout-bot.zip dist
   workingDirectory: '$(modulePath)'
   displayName: 'Zip for Lambda'
 
 - task: PublishPipelineArtifact@0
   inputs:
-    artifactName: 'buyout-bot.zip'
-    targetPath: ''
+    artifactName: 'buyout-bot-zip'
+    targetPath: '$(system.defaultWorkingDirectory)/dist'
