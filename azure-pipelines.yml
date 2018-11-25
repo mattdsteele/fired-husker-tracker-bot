@@ -16,11 +16,6 @@ variables:
 
 steps:
 - script: |
-    mkdir -p '$(GOBIN)'
-    mkdir -p '$(GOPATH)/pkg'
-    mkdir -p '$(modulePath)'
-    shopt -s extglob
-    mv !(gopath) '$(modulePath)'
     echo '##vso[task.prependpath]$(GOBIN)'
     echo '##vso[task.prependpath]$(GOROOT)/bin'
   displayName: 'Set up the Go workspace'
@@ -28,7 +23,6 @@ steps:
 - script: |
     go version
     go build -v .
-  workingDirectory: '$(modulePath)'
   displayName: 'Get dependencies, then build'
 
 - script: |
@@ -38,7 +32,6 @@ steps:
     pwd
     ls
     mv buyout-bot.zip dist
-  workingDirectory: '$(modulePath)'
   displayName: 'Zip for Lambda'
 
 - task: PublishPipelineArtifact@0
