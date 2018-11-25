@@ -16,25 +16,17 @@ variables:
 
 steps:
 - script: |
-    echo '##vso[task.prependpath]$(GOBIN)'
-    echo '##vso[task.prependpath]$(GOROOT)/bin'
-  displayName: 'Set up the Go workspace'
-
-- script: |
-    go version
     go build -v .
   displayName: 'Get dependencies, then build'
-
-- script: |
-    pwd
-    zip buyout-bot.zip buyout-bot
-    mkdir dist
-    pwd
-    ls
-    mv buyout-bot.zip dist
-  displayName: 'Zip for Lambda'
+  
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/buyout-bot' 
+    archiveType: 'zip' # Options: zip, 7z, tar, wim
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' 
+  displayName: 'Zip Lambda'
 
 - task: PublishPipelineArtifact@0
   inputs:
     artifactName: 'buyout-bot-zip'
-    targetPath: '$(System.DefaultWorkingDirectory)/dist'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
