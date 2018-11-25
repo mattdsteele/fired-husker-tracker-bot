@@ -12,7 +12,6 @@ variables:
   GOPATH: '$(system.defaultWorkingDirectory)/gopath' # Go workspace path
   modulePath: '$(GOPATH)/src/github.com/$(build.repository.name)' # Path to the module's code
   GO111MODULE: 'on'
-  System.Debug: 'true'
 
 steps:
 - script: |
