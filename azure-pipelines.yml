@@ -11,7 +11,7 @@ variables:
   GO111MODULE: 'on'
 
 steps:
-  - bash: go version
+  - bash: which go
   
   - bash: go build -v .
     displayName: 'Get dependencies, then build'
