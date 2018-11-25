@@ -1,5 +1,4 @@
 package main
-
 import (
 	"fmt"
 	"math/rand"
@@ -70,3 +69,4 @@ func RandomTweet() string {
 	}
 	return toots[rand.Intn(len(toots))]
 }
+

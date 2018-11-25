@@ -1,5 +1,4 @@
 package main
-
 import (
 	"fmt"
 )
@@ -23,3 +22,4 @@ func mainStandaloneTwitter() {
 		fmt.Printf("Error: %s", err)
 	}
 }
+

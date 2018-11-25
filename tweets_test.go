@@ -1,5 +1,4 @@
 package main
-
 import (
 	"strings"
 	"testing"
@@ -16,7 +15,7 @@ func TestTweets(t *testing.T) {
 	t.Log("Tweet 2")
 	{
 		tweet := TweetPeliniLeft()
-		if !strings.Contains(tweet, "Nebraska still owes $640,045") {
+		if !strings.Contains(tweet, "Nebraska still owes $") {
 			t.Fatal("Failed tweet " + tweet)
 		}
 	}
@@ -28,3 +27,4 @@ func TestTweets(t *testing.T) {
 		}
 	}
 }
+
