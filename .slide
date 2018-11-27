@@ -1,0 +1,99 @@
+They say Go is a Garbage Collected language, so why does my code compile
+A noob builds a Twitter and Mastodon Bot with Go
+27 Nov 2018
+
+Matt Steele
+https://steele.blue
+@mattdsteele
+
+* Learn a new language every year
+
+.link https://steele.blue/golang-for-broke/ I'm bad at this
+.link https://github.com/mattdsteele/side-projects/issues Side Projects
+.link https://twitter.com/drewmg/status/1052027096887939072 Progeny
+
+Come with me on the journey
+
+* Step 0: Get Go
+
+On Windows but I mostly use Linux tools via WSL
+Install via a zip, not from package manager?
+
+* Step 1: Development Environment
+
+VS Code
+.link https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go With Addon
+Mostly "shells out" to other tools (gofmt, gocode)
+But, only runs on save?
+.link https://github.com/Microsoft/vscode-go#go-language-server-experimental Or, use Language Server
+TypeScript tooling seems better 🤷
+
+* Step 2: Learn the Language
+
+.link https://tour.golang.org/welcome/1 Tour of Go
+.link https://golang.org/doc/code.html How to Write Go Code
+.link https://golang.org/doc/effective_go.html Effective Go
+.link https://www.manning.com/books/go-in-action Go In Action 📚
+
+GOPL, others?
+
+Way nicer than JS story
+
+* Step 3: Learn the drama
+
+.link https://github.com/golang/go/wiki/Modules Modules
+.link https://golang.org/doc/effective_go.html#semicolons ;
+Autocomplete
+
+* Writing Tweets
+
+.link tweets.go
+.link tweets_test.go
+
+Assertion libs?
+Mocking dependencies?
+
+* Adding libraries
+
+GO111MODULES are cool
+.link go.mod
+How does it work w/ proxies, private registries?
+
+* Add social networking
+
+Start with Mastodon [[https://github.com/mattn/go-mastodon]]
+Then move to Twitter [[https://github.com/dghubble/go-twitter]]
+How do y'all find good packages?
+
+* Problem: multiple main functions
+
+Someone solve this for me
+
+* Deploy to Lambda
+
+Go support
+Windows or Linux, thanks GOOS
+AWS library [[https://github.com/aws/aws-lambda-go/]]
+More main funcs
+[[https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions]]
+
+* CI/CD
+Azure Pipelines [[https://azure.microsoft.com/en-us/services/devops/pipelines/]]
+.link azure-pipelines.yml
+[[https://dev.azure.com/orphum/Husker%20Buyout%20Bot/_build?definitionId=1]]
+Travis, Circle seem like they'd work?
+
+* What I like about Go
+
+Fast
+Strongly typed (but structurally typed)
+Eschews Bikeshedding
+No VM
+Backwards compatibility
+
+* What I didn't like
+
+GOROOT wtf
+Pointers are back?
+I miss functional programming
+Tooling more generally
