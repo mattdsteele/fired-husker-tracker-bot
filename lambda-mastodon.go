@@ -1,5 +1,4 @@
 package main
-
 import (
 	"errors"
 	"log"
@@ -28,3 +27,4 @@ func Handler(request events.CloudWatchEvent) {
 func mainToot() {
 	lambda.Start(Handler)
 }
+

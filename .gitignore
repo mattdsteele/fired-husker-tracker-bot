@@ -3,3 +3,4 @@ debug.test
 main
 *.zip
 buyout-bot
+*.local

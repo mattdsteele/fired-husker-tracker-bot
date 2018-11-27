@@ -1,5 +1,4 @@
 package main
-
 import (
 	"os"
 
@@ -18,3 +17,4 @@ func Tweet(tweetContent string) (*twitter.Tweet, error) {
 	tweet, _, err := client.Statuses.Update(tweetContent, nil)
 	return tweet, err
 }
+
