@@ -53,6 +53,10 @@ func TweetRemainingMonths() string {
 	return fmt.Sprintf("There are %d months left until Scott Frost is the only head coach drawing a salary from the University of Nebraska.", MonthsUntil(2019, time.March))
 }
 
+func PeliniContractLink() string {
+	return fmt.Sprintf("Bo Pelini's contract stipulated he would receive $150,000 per month for the remainder of his contract. He chose to receive the money in a lump sum. https://dataomaha.com/documents/bo-pelinis-contract#document/p10/a134436")
+}
+
 func RandomTweet() string {
 	rand.Seed(time.Now().UnixNano())
 	toots := []string{
@@ -62,6 +66,7 @@ func RandomTweet() string {
 		TweetPeliniLeft(),
 		TweetPeliniPayout(),
 		TweetRemainingMonths(),
+		PeliniContractLink(),
 	}
 	return toots[rand.Intn(len(toots))]
 }
