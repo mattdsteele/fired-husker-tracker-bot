@@ -45,7 +45,7 @@ func TweetEichorstLeft() string {
 	return tweet
 }
 func ThisMonthPayout() string {
-	tweet := fmt.Sprintf("This month, Nebraska will pay %s Bo Pelini as they work off his contractual obligations.", dollar(peliniPayout+eichorstPayout+rileyPayout))
+	tweet := fmt.Sprintf("This month, Nebraska will pay %s to Bo Pelini as they continue to work off his contractual obligations.", dollar(peliniPayout))
 	return tweet
 }
 
