@@ -1,5 +1,4 @@
-package main
-
+package bot
 import (
 	"time"
 )
@@ -21,3 +20,4 @@ func RileyMonths() int {
 func EichorstMonths() int {
 	return MonthsUntil(2019, time.June)
 }
+
