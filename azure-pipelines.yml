@@ -18,13 +18,13 @@ steps:
 
   - task: ArchiveFiles@2
     inputs:
-      rootFolderOrFile: '$(System.DefaultWorkingDirectory)/lambda-twitter'
+      rootFolderOrFile: '$(System.DefaultWorkingDirectory)/bin/lambda-twitter'
       archiveType: 'zip' # Options: zip, 7z, tar, wim
       archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-twitter.zip'
     displayName: 'Zip Lambda (twitter)'
   - task: ArchiveFiles@2
     inputs:
-      rootFolderOrFile: '$(System.DefaultWorkingDirectory)/lambda-mastodon'
+      rootFolderOrFile: '$(System.DefaultWorkingDirectory)/bin/lambda-mastodon'
       archiveType: 'zip' # Options: zip, 7z, tar, wim
       archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-mastodon.zip'
     displayName: 'Zip Lambda (Mastodon)'
