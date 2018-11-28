@@ -14,8 +14,8 @@ var ac accounting.Accounting
 
 func init() {
 	peliniPayout = 128009
-	eichorstPayout = 62666
-	rileyPayout = 165833
+	eichorstPayout = 762439
+	rileyPayout = 6235393
 	ac = accounting.Accounting{Symbol: "$", Precision: 0}
 }
 
@@ -36,25 +36,25 @@ func TweetPeliniLeft() string {
 }
 
 func TweetRileyPayout() string {
-	rileyMonths := RileyMonths()
-	tweet := fmt.Sprintf("Mike Riley has %d months left until Nebraska completes his contract buyout. They will pay him %s this month and next month until February 2021.", rileyMonths, dollar(rileyPayout))
+	tweet := fmt.Sprintf("Mike Riley was paid %s in a lump sum in December 2017 to fulfil Nebraska's contract obligation. https://journalstar.com/sports/huskers/football/nu-paid-former-coach-riley-lump-sum-of-more-than/article_f0b24796-b2a6-50ec-a68f-16ef42cdc179.amp.html", dollar(rileyPayout))
 	return tweet
 }
 
-func TweetRileyLeft() string {
-	rileyMonths := RileyMonths()
-	tweet := fmt.Sprintf("Nebraska still owes %s to Mike Riley before they are done buying out his contract.", dollar(rileyMonths*rileyPayout))
-	return tweet
-}
 func TweetEichorstLeft() string {
-	eichorstMonths := EichorstMonths()
-	tweet := fmt.Sprintf("Nebraska still owes %s to Shawn Eichorst before they are done buying out his contract.", dollar(eichorstMonths*eichorstPayout))
+	tweet := fmt.Sprintf("Shawn Eichorst was paid %s in a lump sum in June 2018 to buy out the remainder of his contract.", dollar(eichorstPayout))
 	return tweet
 }
 func ThisMonthPayout() string {
-	tweet := fmt.Sprintf("This month, Nebraska will pay %s in total to Bo Pelini, Mike Riley, and Shawn Eichorst.", dollar(peliniPayout+eichorstPayout+rileyPayout))
+	tweet := fmt.Sprintf("This month, Nebraska will pay %s to Bo Pelini as they continue to work off his contractual obligations.", dollar(peliniPayout))
 	return tweet
+}
 
+func TweetRemainingMonths() string {
+	return fmt.Sprintf("There are %d months left until Scott Frost is the only head coach drawing a salary from the University of Nebraska.", MonthsUntil(2019, time.March))
+}
+
+func PeliniContractLink() string {
+	return fmt.Sprintf("Bo Pelini's contract stipulated he would receive $150,000 per month for the remainder of his contract. He chose to receive the money in a lump sum. https://dataomaha.com/documents/bo-pelinis-contract#document/p10/a134436")
 }
 
 func RandomTweet() string {
@@ -62,10 +62,11 @@ func RandomTweet() string {
 	toots := []string{
 		ThisMonthPayout(),
 		TweetEichorstLeft(),
-		TweetRileyLeft(),
 		TweetRileyPayout(),
 		TweetPeliniLeft(),
 		TweetPeliniPayout(),
+		TweetRemainingMonths(),
+		PeliniContractLink(),
 	}
 	return toots[rand.Intn(len(toots))]
 }

@@ -1,5 +1,4 @@
 package main
-
 import (
 	"log"
 
@@ -21,3 +20,4 @@ func TwitterHandler(request events.CloudWatchEvent) {
 func main() {
 	lambda.Start(TwitterHandler)
 }
+

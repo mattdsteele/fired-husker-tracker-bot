@@ -22,7 +22,7 @@ func TestTweets(t *testing.T) {
 	t.Log("Payout")
 	{
 		tweet := ThisMonthPayout()
-		if !strings.Contains(tweet, "$356,508") {
+		if !strings.Contains(tweet, "$128,009") {
 			t.Fatal("Failed tweet " + tweet)
 		}
 	}
