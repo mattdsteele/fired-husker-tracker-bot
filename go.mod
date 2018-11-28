@@ -1,4 +1,4 @@
-module buyout-bot
+module github.com/mattdsteele/husker-buyout-bot
 
 require (
 	github.com/aws/aws-lambda-go v1.6.0

@@ -10,7 +10,7 @@ variables:
   GO111MODULE: 'on'
 
 steps:
-  - bash: go build -v .
+  - bash: GOBIN=$PWD/bin go install ./...
     displayName: 'Get dependencies, then build'
 
   - bash: go test
@@ -18,10 +18,16 @@ steps:
 
   - task: ArchiveFiles@2
     inputs:
-      rootFolderOrFile: '$(System.DefaultWorkingDirectory)/buyout-bot'
+      rootFolderOrFile: '$(System.DefaultWorkingDirectory)/bin/lambda-twitter'
       archiveType: 'zip' # Options: zip, 7z, tar, wim
-      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    displayName: 'Zip Lambda'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-twitter.zip'
+    displayName: 'Zip Lambda (twitter)'
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: '$(System.DefaultWorkingDirectory)/bin/lambda-mastodon'
+      archiveType: 'zip' # Options: zip, 7z, tar, wim
+      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-mastodon.zip'
+    displayName: 'Zip Lambda (Mastodon)'
 
   - task: PublishPipelineArtifact@0
     inputs:

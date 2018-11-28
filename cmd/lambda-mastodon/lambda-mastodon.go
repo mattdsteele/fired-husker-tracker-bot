@@ -5,6 +5,7 @@ import (
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
+	bot "github.com/mattdsteele/husker-buyout-bot"
 )
 
 var (
@@ -19,12 +20,12 @@ func Handler(request events.CloudWatchEvent) {
 
 	// stdout and stderr are sent to AWS CloudWatch Logs
 	log.Printf("Processing Lambda request %s\n", request.Source)
-	connection := Connect()
-	tweet := RandomTweet()
-	Toot(connection, tweet)
+	connection := bot.Connect()
+	tweet := bot.RandomTweet()
+	bot.Toot(connection, tweet)
 	log.Printf("Tooted: %s\n", tweet)
 }
-func mainToot() {
+func main() {
 	lambda.Start(Handler)
 }
 

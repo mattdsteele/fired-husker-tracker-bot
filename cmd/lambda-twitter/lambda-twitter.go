@@ -4,6 +4,7 @@ import (
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
+	bot "github.com/mattdsteele/husker-buyout-bot"
 )
 
 // Handler is your Lambda function handler
@@ -13,8 +14,8 @@ func TwitterHandler(request events.CloudWatchEvent) {
 
 	// stdout and stderr are sent to AWS CloudWatch Logs
 	log.Printf("Processing Lambda request %s\n", request.Source)
-	tweet := RandomTweet()
-	Tweet(tweet)
+	tweet := bot.RandomTweet()
+	bot.Tweet(tweet)
 	log.Printf("Tooted: %s\n", tweet)
 }
 func main() {
